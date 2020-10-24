@@ -73,37 +73,58 @@ public class Partie {
 		}
 	}
 
+	/**
+	 * Comparaison de 2 cartes
+	 * @param carte
+	 * @param carte2
+	 * @return
+	 */
+	public Carte comparaisonDeuxCartes(Carte carte, Carte carte2) {
+		Carte cartePlusForte;
+		if (carte.getValeur() > carte2.getValeur()) {
+			cartePlusForte = carte;
+		} else {
+			cartePlusForte = carte2;
+		}
+		return cartePlusForte;
+	}
+
+	/**
+	 * Comparaison des cartes de tous les joueurs.
+	 * @return
+	 */
 	public List<Joueur> comparaisonCarte() {
+		initCarteTapis();
 		tirageCarte();
-		
-		Carte carteLaplusForte = new Carte();
-		Joueur joueurPlusFort = new Joueur();
-		int valeurCarteLaPlusForte = 0;
-		
+
 		/**
-		 * Afin de gérer au plus juste l'égalité, un mélange de l'ordre des joueurs est fait.
-		 * Le première qui aura la plus forte carte suivant cette ordre sera vainqueur
+		 * Afin de gérer au plus juste l'égalité, un mélange de l'ordre des joueurs
+		 * est fait.  Le première qui aura la plus forte carte suivant cet ordre
+		 * sera vainqueur 
 		 */
 		Collections.shuffle(joueurs);
-		
+
+		Joueur joueurPlusFort = joueurs.get(0);
+
 		for (Joueur joueur : joueurs) {
-			int carteJoueur = joueur.getCarteTapis().getValeur();
-			//System.out.println(joueur.getNom() + " " +joueur.getCarteTapis());
-			if(carteJoueur > valeurCarteLaPlusForte) {
-				valeurCarteLaPlusForte = carteJoueur;
-				carteLaplusForte = joueur.getCarteTapis();
-				joueurPlusFort = joueur;	
+			if (joueur.getNom() != joueurPlusFort.getNom()) {
+				Carte retourCarte = comparaisonDeuxCartes(joueur.getCarteTapis(), joueurPlusFort.getCarteTapis());
+				if (retourCarte.equals(joueur.getCarteTapis())) {
+					joueurPlusFort = joueur;
+				}
 			}
 		}
-		
 		attributionDesCartes(joueurPlusFort);
 		return joueurs;
 	}
-	
-	
+
+	/**
+	 * Ajouter les cartes au vainqueur du tour et les retirer aux perdants.
+	 * @param joueurPlusFort
+	 */
 	public void attributionDesCartes(Joueur joueurPlusFort) {
 		for (Joueur joueur : joueurs) {
-			if(joueur.getNom().equals(joueurPlusFort.getNom())) {
+			if (joueur.getNom().equals(joueurPlusFort.getNom())) {
 				joueur.getMainJoueur().remove(0);
 				for (Joueur joueurz : joueurs) {
 					joueur.getMainJoueur().add(joueurz.getCarteTapis());
@@ -112,13 +133,14 @@ public class Partie {
 				joueur.getMainJoueur().remove(0);
 			}
 		}
-		finPli();
 	}
-	
-	public void finPli() {
+
+	/**
+	 * Initialisation du tapis de chaques joueurs
+	 */
+	public void initCarteTapis() {
 		for (Joueur joueur : joueurs) {
 			joueur.setCarteTapis(null);
 		}
 	}
-		
 }
