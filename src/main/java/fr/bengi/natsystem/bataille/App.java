@@ -24,7 +24,7 @@ public class App
 		int nbCarteParCouleur = jeuCarte.size() / 4;
 		
 		List<Carte> listCarte = new ArrayList<Carte>(jeuCarte);
-		
+		 
 		for (int i=0;i<nbCarteParCouleur ;i++) {
 			System.out.printf("|  %17s  |  %17s   |  %17s   |  %17s  |\n",
 					listCarte.get(i),
