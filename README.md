@@ -1,18 +1,19 @@
-Objectifs de l’évaluation
+**Objectifs de l’évaluation**
 Évaluation de la capacité du candidat à produire un code de qualité professionnelle.
 Test : Réaliser un exercice simple de programmation en respectant le cahier des charges et faisant
 attention à la qualité du code produit.
-Fournissez tous les éléments :
+
+**Fournissez tous les éléments :**
 - Le langage que vous avez retenu et la raison du choix de ce langage
 - Le code source
 - Le code binaire produit
 - Le fichier texte de résultat de test (ou hard copie d’écran)
 
-Sujet : Déclarer un tableau de 52 cartes avec pour chacune une valeur et une couleur.
+**Sujet : Déclarer un tableau de 52 cartes avec pour chacune une valeur et une couleur.**
 1- Initialiser ce jeu correctement : les 13 valeurs et les 4 couleurs.
 2- Afficher ensuite toutes les cartes.
 
-Résultats attendus
+**Résultats attendus**
 Le programme doit afficher les cartes de cette manière (en mode console au moins)
         2 de trèfle                         2 de pique
         3 de trèfle                         3 de pique
