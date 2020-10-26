@@ -1,6 +1,7 @@
 **Objectifs de l’évaluation**
 Évaluation de la capacité du candidat à produire un code de qualité professionnelle.
-Test : Réaliser un exercice simple de programmation en respectant le cahier des charges et faisant
+
+**Test** : Réaliser un exercice simple de programmation en respectant le cahier des charges et faisant
 attention à la qualité du code produit.
 
 **Fournissez tous les éléments :**
